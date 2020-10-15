@@ -21,25 +21,21 @@ public class swordCombat : MonoBehaviour {
     void Update() {
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         //pohyb meče
-        if (Input.GetMouseButton(0)) {
+        if (Input.GetMouseButton(1)) {
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //uloží si pozici, kde bylo zmáčknuto levé myšítko
             direction = (mousePosition - transform.position).normalized;
             rb.velocity = new Vector2(direction.x * moveSpeed, direction.y * moveSpeed);
+
+
+            Vector2 lookDirection = mousePos - rb.position;
+            float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 47f;
+            rb.rotation = angle;
         }
         else
         {
             rb.velocity = Vector2.zero;
         }
-        if (Input.GetMouseButton(1))
-        {
 
-        }
-        else
-        {
-            Vector2 lookDirection = mousePos - rb.position;
-            float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 47f;
-            rb.rotation = angle;
-        }
 	}
 
 

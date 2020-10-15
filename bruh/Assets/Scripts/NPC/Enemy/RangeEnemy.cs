@@ -12,7 +12,7 @@ public class RangeEnemy : MonoBehaviour
 
 
     public GameObject projectile;
-    public float timeBtwShots;
+    private float timeBtwShots;
     public float startTimeBtwShots;
 
     private Transform player;
