@@ -6,6 +6,15 @@ TagManager:
   tags:
   - SpawnPoint
   - Rooms
+  - Projectile
+  - Enemy
+  - Cursor
+  - Wall
+  - Coin
+  - Door
+  - RoomMaster
+  - bullet
+  - aStarGraph
   layers:
   - Default
   - TransparentFX
@@ -16,8 +25,8 @@ TagManager:
   - 
   - 
   - bruh
-  - 
-  - 
+  - A*
+  - Enemy
   - 
   - 
   - 

@@ -14,6 +14,8 @@ public class MovementPlayer : MonoBehaviour {
 
     float movementRotate;
 
+    private SpawnPoint spawnPoint;
+
     // Use this for initialization
     void Update () {
         movement.x = Input.GetAxisRaw("Horizontal");
@@ -35,5 +37,14 @@ public class MovementPlayer : MonoBehaviour {
     {
         rotate = !rotate;
         transform.Rotate(Vector3.up * 180);
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("bullet") || collision.collider.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

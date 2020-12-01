@@ -15,8 +15,11 @@ public class bullet : MonoBehaviour {
         bulletRB.velocity = new Vector2(moveDir.x, moveDir.y);
 
 	}
-    private void OnCollisionEnter2D(Collision2D collision)
+    
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         Destroy(gameObject);
     }
+
 }

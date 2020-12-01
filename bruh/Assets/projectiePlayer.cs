@@ -8,7 +8,10 @@ public class projectiePlayer : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy();
+        if (!collision.collider.CompareTag("Player"))
+        {
+            Destroy();
+        }
     }
 
     public void Destroy()
