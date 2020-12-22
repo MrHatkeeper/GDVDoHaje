@@ -15,6 +15,10 @@ TagManager:
   - RoomMaster
   - bullet
   - aStarGraph
+  - SwordDefaultPosition
+  - swordDefault
+  - enemyBullet
+  - sword
   layers:
   - Default
   - TransparentFX

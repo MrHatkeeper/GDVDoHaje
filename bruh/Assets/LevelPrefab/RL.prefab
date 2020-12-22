@@ -5513,7 +5513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 8077209297099434675, guid: 6094c05301daca540b92c4762b374e79, type: 3}
+  - {fileID: 4238494283901796398, guid: bcf619845bf384c4995a7962fd209dde, type: 3}
 --- !u!1 &5444345995426446904
 GameObject:
   m_ObjectHideFlags: 0
@@ -5964,7 +5964,7 @@ GameObject:
   - component: {fileID: 684504126779082910}
   - component: {fileID: 9186088267770608906}
   m_Layer: 9
-  m_Name: Square (37)
+  m_Name: Door
   m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6875,7 +6875,7 @@ GameObject:
   - component: {fileID: 6608830679200491956}
   m_Layer: 0
   m_Name: RL
-  m_TagString: Untagged
+  m_TagString: Rooms
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8408,7 +8408,7 @@ GameObject:
   - component: {fileID: 1371400575456863128}
   - component: {fileID: 9065476867556447697}
   m_Layer: 9
-  m_Name: Square (39)
+  m_Name: Door
   m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovementPlayer : MonoBehaviour {
 
-    public float moveSpeed = 5f;
+    public float moveSpeed;
 
     public Rigidbody2D rb;
 
@@ -42,7 +42,7 @@ public class MovementPlayer : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("bullet") || collision.collider.CompareTag("Enemy"))
+        if (collision.collider.CompareTag("enemyBullet") || collision.collider.CompareTag("Enemy"))
         {
             Destroy(gameObject);
         }

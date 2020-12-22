@@ -19,6 +19,8 @@ public class NewRoom : MonoBehaviour
         aStar = GameObject.FindGameObjectWithTag("aStarGraph").GetComponent<AstarPath>();
     }
 
+
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         enemy = GameObject.FindGameObjectsWithTag("Enemy");
