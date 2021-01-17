@@ -11,21 +11,39 @@ public class NewRoom : MonoBehaviour
     private GameObject[] enemy;
     public int doorNumber;
     private AstarPath aStar;
+    private swordDefence sD;
+    private SpawnPoint sP;
 
     private void Start()
     {
+
+
         player = GameObject.FindGameObjectWithTag("Player");
 
+        sP = GameObject.FindGameObjectWithTag("GameMaster").GetComponent<SpawnPoint>();
+
         aStar = GameObject.FindGameObjectWithTag("aStarGraph").GetComponent<AstarPath>();
+
+        sP.SpawnEnemy();
+
     }
 
+    private void Update()
+    {
+        
+    }
 
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
         enemy = GameObject.FindGameObjectsWithTag("Enemy");
+
         if(enemy.Length == 0)
         {
+
+
+
             if (collision.collider.CompareTag("Player"))
             {
                 if (doorNumber == 1)
@@ -45,11 +63,15 @@ public class NewRoom : MonoBehaviour
                     player.transform.position = new Vector2(player.transform.position.x + 145, player.transform.position.y);
                 }
                 rand = Random.Range(0, mistnost.Length);
+
                 Destroy(transform.parent.gameObject);
                 Instantiate(mistnost[rand], gameObject.transform.parent.position, mistnost[rand].transform.rotation);
 
                 aStar.Scan();
             }
         }
+
+        sD = GameObject.FindGameObjectWithTag("sword").GetComponent<swordDefence>();
+        sD.moveDefaultPos();
     }
 }

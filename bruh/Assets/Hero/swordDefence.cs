@@ -33,8 +33,7 @@ public class swordDefence : MonoBehaviour
         {
             timer -= Time.deltaTime;
         }
-        Debug.Log(timer);
-        speed = mP.moveSpeed + 5;
+        speed = mP.moveSpeed + 10;
 
 
         if (maxBlock == blockedProjectiles)
@@ -42,6 +41,7 @@ public class swordDefence : MonoBehaviour
             isBlocking = false;
             blockedProjectiles = 0;
         }
+
      
         if (isBlocking == false)
         {
@@ -58,8 +58,33 @@ public class swordDefence : MonoBehaviour
         {
             enemyProjectile = GameObject.FindGameObjectsWithTag("enemyBullet");
 
-            speed += fllwSpeed;
-            transform.position = Vector2.MoveTowards(transform.position, enemyProjectile[0].transform.position, speed * Time.deltaTime);
+            if (enemyProjectile.Length > 0)
+            {
+                speed += fllwSpeed;
+
+
+                Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                float closestDist = Mathf.Infinity;
+                GameObject bestTarget = null;
+                
+                for(int i = 0; i < enemyProjectile.Length; i++)
+                {
+                    Vector3 directionToTarget = enemyProjectile[i].transform.position - worldPosition;
+                    float dSqrToTarget = directionToTarget.sqrMagnitude;
+
+                    if (dSqrToTarget < closestDist){
+                        closestDist = dSqrToTarget;
+                        bestTarget = enemyProjectile[i];
+                    }
+                }
+
+
+                transform.position = Vector2.MoveTowards(transform.position, bestTarget.transform.position, speed * Time.deltaTime);
+            }
+            else
+            {
+                isBlocking = false;
+            }
         }
     }
 
@@ -73,5 +98,10 @@ public class swordDefence : MonoBehaviour
                 timer = cooldown;
             }
         }
+    }
+
+    public void moveDefaultPos()
+    {
+        transform.position = defaultPos.transform.position;
     }
 }

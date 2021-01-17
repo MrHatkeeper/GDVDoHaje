@@ -19,6 +19,8 @@ TagManager:
   - swordDefault
   - enemyBullet
   - sword
+  - GameMaster
+  - CameraFollow
   layers:
   - Default
   - TransparentFX
@@ -31,10 +33,10 @@ TagManager:
   - bruh
   - A*
   - Enemy
-  - 
-  - 
-  - 
-  - 
+  - Postprocessing
+  - PlayerBullet
+  - Sword
+  - EnemyProjectile
   - 
   - 
   - 

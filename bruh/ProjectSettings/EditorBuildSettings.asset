@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/bruh.unity
     guid: 75331af498d92054093ede981925e882
+  - enabled: 1
+    path: Assets/Option.unity
+    guid: b3aa19628be9b964587cf65d71acec88
   m_configObjects: {}

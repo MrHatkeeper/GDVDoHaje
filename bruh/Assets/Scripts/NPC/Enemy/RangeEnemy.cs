@@ -5,12 +5,6 @@ using UnityEngine;
 public class RangeEnemy : MonoBehaviour
 {
 
-
-    public float speed;
-    public float stoppingDistance;
-    public float retreatDistance;
-
-
     public GameObject projectile;
     private float timeBtwShots;
     public float startTimeBtwShots;
@@ -18,35 +12,17 @@ public class RangeEnemy : MonoBehaviour
     private Transform player;
 
 
-
-
     // Use this for initialization
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
         timeBtwShots = startTimeBtwShots;
     }
 
     // Update is called once per frame
-    void Update()
+    void Shoot()
     {
-        if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
 
-        }
-        else if (Vector2.Distance(transform.position, player.position) < stoppingDistance && Vector2.Distance(transform.position, player.position) > retreatDistance)
-        {
-            transform.position = this.transform.position;
-        }
-        else if (Vector2.Distance(transform.position, player.position) < retreatDistance)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
-        }
-
-
-
-        if(timeBtwShots <= 0)
+        if (timeBtwShots <= 0)
         {
             Instantiate(projectile, transform.position, Quaternion.identity);
             timeBtwShots = startTimeBtwShots;
@@ -55,11 +31,5 @@ public class RangeEnemy : MonoBehaviour
         {
             timeBtwShots -= Time.deltaTime;
         }
-
-        
-
-
     }
-
-
 }

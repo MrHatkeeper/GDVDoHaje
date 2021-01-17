@@ -30,15 +30,27 @@ public class bullet : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("sword") && collision.CompareTag("Projectile"))
+        if(collision.CompareTag("Wall") || collision.CompareTag("Door") || collision.CompareTag("Projectile"))
+        {
+            Destroy(gameObject);
+        }
+        
+        if (collision.CompareTag("sword"))
         {
             sD = GameObject.FindGameObjectWithTag("sword").GetComponent<swordDefence>();
+            
             if (sD.isBlocking)
             {
                 Destroy(gameObject);
             }
+            
         }
-        else
+
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Player") || collision.collider.CompareTag("Wall") || collision.collider.CompareTag("Door") || collision.collider.CompareTag("Projectile"))
         {
             Destroy(gameObject);
         }

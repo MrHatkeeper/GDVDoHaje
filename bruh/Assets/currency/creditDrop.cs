@@ -7,12 +7,30 @@ public class creditDrop : MonoBehaviour
 
     public GameObject coin;
 
+    public int coinCount ;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Projectile"))
+        for(int i = 0; i < coinCount; i++)
         {
-            Instantiate(coin, transform.position, transform.rotation);
-            Destroy(gameObject);
+            if (collision.collider.CompareTag("Projectile"))
+            {
+                Instantiate(coin, transform.position, transform.rotation);
+                Destroy(gameObject);
+            }
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        for (int i = 0; i < coinCount; i++)
+        {
+            if (collision.CompareTag("Projectile"))
+            {
+                Instantiate(coin, transform.position, transform.rotation);
+                Destroy(gameObject);
+            }
+        }
+    }
+
 }
